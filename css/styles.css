@@ -2,8 +2,53 @@ body {
   padding-bottom: 10vh;
 }
 
-button {
+.view-button {
   position: fixed;
   right: 4vw;
   bottom: 4vh;
+}
+
+nav {
+  background-color: transparent;
+}
+
+.menu-button {
+  max-width: 8rem;
+  margin: 2rem 0 2rem 0;
+}
+
+#main-nav {
+  width: 20vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 2rem;
+  background: rgb(0, 168, 198);
+  color: white;
+}
+
+#main-nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
+#main-nav ul li {
+  font-weight: 700;
+}
+
+#main-recipe {
+  padding: 2rem 0 2rem 2rem;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }

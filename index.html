@@ -19,38 +19,46 @@
 <body>
 
 <div id="vueRecipe">
-    <div>
-        <nav v-if="navrecipes">
-            <ul>
-                <navrecipecategory v-for="recipe in navrecipes"
-                                   v-bind:category="recipe" v-bind:key="recipe.category ? recipe.category : recipe.id"></navrecipecategory>
-                <li @click="toggleMenuOpen">{{ isMenuOpen }}</li>
-            </ul>
-        </nav>
-    </div>
-    <div v-if="!recipeId">
-        <title>Thom's Recipes</title>
-        Select a recipe
-    </div>
-    <div v-else-if="loading">
-        <title>{{ recipeId }}</title>
-        Loading...
-    </div>
-    <div v-else>
-        <main>
-            <title>{{ recipe.name }}</title>
-            <span>Yield<span v-if="unit"> ({{ unit }})</span>:<input v-model="quantity"></span>
-            <recipe
-                v-bind:recipe="recipe"
-                v-bind:subrecipes="subrecipes"
-                v-bind:mode="mode"
-                v-bind:path="'0'"
-                v-bind:visiblesubrecipepaths="visiblesubrecipepaths"
-                v-bind:quantity="quantity"
-                v-bind:unit="unit"></recipe>
-        </main>
-        <footer><button type="button" @click="switchMode">{{mode==="verbose" ? "Show condensed view" : "Show verbose view"}}</button></footer>
-    </div>
+
+    <transition name="slide-fade">
+        <p v-if="show">hello</p>
+        <div v-if="isMenuOpen" id="main-nav">
+            <nav v-if="navrecipes">
+                <ul>
+                    <navrecipecategory v-for="recipe in navrecipes"
+                                    v-bind:category="recipe" v-bind:key="recipe.category ? recipe.category : recipe.id"></navrecipecategory>
+                    <li @click="toggleMenuOpen">{{ isMenuOpen }}</li>
+                </ul>
+            </nav>
+        </div>
+    </transition>
+    <div id="main-recipe">
+        <button class="menu-button" @click="toggleMenuOpen">Open Menu</button>
+
+        <div v-if="!recipeId">
+            <title>Thom's Recipes</title>
+            Select a recipe
+        </div>
+        <div v-else-if="loading">
+            <title>{{ recipeId }}</title>
+            Loading...
+        </div>
+        <div v-else>
+            <main>
+                <title>{{ recipe.name }}</title>
+                <span>Yield<span v-if="unit"> ({{ unit }})</span>:<input v-model="quantity"></span>
+                <recipe
+                    v-bind:recipe="recipe"
+                    v-bind:subrecipes="subrecipes"
+                    v-bind:mode="mode"
+                    v-bind:path="'0'"
+                    v-bind:visiblesubrecipepaths="visiblesubrecipepaths"
+                    v-bind:quantity="quantity"
+                    v-bind:unit="unit"></recipe>
+            </main>
+            <footer><button class="view-button" type="button" @click="switchMode">{{mode==="verbose" ? "Show condensed view" : "Show verbose view"}}</button></footer>
+        </div>
+    </div>  
 </div>
 </body>
 </html>
