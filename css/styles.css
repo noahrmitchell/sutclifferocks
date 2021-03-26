@@ -13,18 +13,19 @@ nav {
 }
 
 .menu-button {
-  max-width: 8rem;
+  max-width: 16rem;
   margin: 2rem 0 2rem 0;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 #main-nav {
   width: 20vw;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  padding: 2rem;
-  background: rgb(0, 168, 198);
+  padding: 4rem 2rem 2rem 2rem;
+  background: #363636;
   color: white;
 }
 
@@ -37,18 +38,30 @@ nav {
   font-weight: 700;
 }
 
+.toggle-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+}
+
 #main-recipe {
   padding: 2rem 0 2rem 2rem;
+  transform: translateX(-2rem);
+  transition: all 0.3s ease;
+}
+
+#main-recipe.active {
+  margin-left: 10vw;
 }
 
 .slide-fade-enter-active {
   transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s ease;
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
+  transform: translateX(-100%);
 }

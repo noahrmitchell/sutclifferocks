@@ -6,6 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/convert-units.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fraction.js@4.0.13/fraction.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/holiday.css@0.9.5" />
     <link rel="stylesheet" href="css/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -23,21 +24,20 @@
     <transition name="slide-fade">
         <p v-if="show">hello</p>
         <div v-if="isMenuOpen" id="main-nav">
+            <i @click="toggleMenuOpen" class="far fa-window-close toggle-close"></i>
             <nav v-if="navrecipes">
                 <ul>
                     <navrecipecategory v-for="recipe in navrecipes"
                                     v-bind:category="recipe" v-bind:key="recipe.category ? recipe.category : recipe.id"></navrecipecategory>
-                    <li @click="toggleMenuOpen">{{ isMenuOpen }}</li>
                 </ul>
             </nav>
         </div>
     </transition>
-    <div id="main-recipe">
-        <button class="menu-button" @click="toggleMenuOpen">Open Menu</button>
+    <div id="main-recipe" v-bind:class="{ active : isMenuOpen }">
+        <button class="menu-button" @click="toggleMenuOpen">Select a Recipe</button>
 
         <div v-if="!recipeId">
             <title>Thom's Recipes</title>
-            Select a recipe
         </div>
         <div v-else-if="loading">
             <title>{{ recipeId }}</title>
