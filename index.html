@@ -55,19 +55,19 @@
                     v-bind:quantity="quantity"
                     v-bind:unit="unit"></recipe>
         </main>
-        <footer>
-            <fieldset class="r-pill">
-                    <span class="r-pill__item" @click="setVerboseMode">
-                        <input type="radio" id="r1" name="radios" v-bind:checked="mode === 'verbose'">
-                        <label for="r1">Verbose view</label>
-                    </span>
-                    <span class="r-pill__item" @click="setCondensedMode">
-                        <input type="radio" id="r2" name="radios" v-bind:checked="mode === 'condensed'">
-                        <label for="r2">Condensed view</label>
-                    </span>
-            </fieldset>
-        </footer>
     </div>
+    <footer>
+        <fieldset class="r-pill">
+                <span class="r-pill__item" @click="setVerboseMode">
+                    <input type="radio" id="r1" name="radios" v-bind:checked="mode === 'verbose'">
+                    <label for="r1">Verbose view</label>
+                </span>
+                <span class="r-pill__item" @click="setCondensedMode">
+                    <input type="radio" id="r2" name="radios" v-bind:checked="mode === 'condensed'">
+                    <label for="r2">Condensed view</label>
+                </span>
+        </fieldset>
+    </footer>
 </div>
 </body>
 </html>
