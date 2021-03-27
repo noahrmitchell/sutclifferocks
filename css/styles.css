@@ -36,33 +36,6 @@ nav {
   font-weight: 700;
 }
 
-@media only screen and (max-width: 540px) {
-  #main-nav {
-    width: 95vw;
-  }
-  #main-recipe {
-    margin-left: 2rem;
-  }
-  footer {
-    height: 10vh;
-    background: #fff;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-  fieldset {
-    display: flex;
-    justify-content: end;
-  }
-  .r-pill {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-}
-
 .toggle-close {
   position: absolute;
   top: 1rem;
@@ -220,5 +193,35 @@ nav {
   .r-pill[disabled] .r-pill__item label:hover,
   .r-pill[disabled] .r-pill__item input:hover ~ label {
     text-decoration: none;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  #main-nav {
+    width: 95vw;
+  }
+  #main-recipe {
+    margin-left: 2rem;
+  }
+  footer {
+    height: 10vh;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: end;
+  }
+  fieldset {
+    display: flex;
+    justify-content: end;
+  }
+  .r-pill {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0 2rem 2rem 0;
   }
 }
