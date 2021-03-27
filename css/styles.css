@@ -213,15 +213,15 @@ nav {
     display: flex;
     justify-content: end;
   }
-  fieldset {
-    display: flex;
-    justify-content: end;
-  }
+
   .r-pill {
     position: fixed;
     right: 0;
     bottom: 0;
     left: 0;
     margin: 0 2rem 2rem 0;
+    display: flex;
+    justify-content: end;
+    align-self: flex-end;
   }
 }
